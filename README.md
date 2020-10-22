@@ -13,8 +13,8 @@ An Arduino project which allows you to control the timed sequence of 8 lights ba
 
 ## Schematic
 
-![schematic image](http://url/to/img.png)
+![schematic image](https://github.com/angelina-tsuboi/Timed_LED_Control/blob/main/images/schematic.png)
 
 ## Completed Project
 
-![project photo](http://url/to/img.png)
+![project photo](https://github.com/angelina-tsuboi/Timed_LED_Control/blob/main/images/project.jpg)
