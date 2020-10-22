@@ -25,17 +25,12 @@ void loop() {
   // put your main code here, to run repeatedly:
   intervalValue = analogRead(intervalPot); //recieving inputs from pots
   amountValue = analogRead(amountPot);
-  intervalValue = map(intervalValue, 0, 1023, 0, 255); //Map value 0-1023 to 0-255 (PWM)
+  intervalValue = map(intervalValue, 0, 1023, 0, 255) * 50; //Map value 0-1023 to 0-255 (PWM)
   amountValue = map(amountValue, 0, 1023, 0, 255); 
-//  Serial.print("intervalValue: ");
-//  Serial.println(intervalValue);
-//  Serial.print("amountValue: ");
-//  Serial.println(amountValue);
-//  updateLED(3);
-  updateLED(1);
-  delay(1000);
-  updateLED(4);
-  delay(1000);
+  updateLED(0);
+  delay(intervalValue);
+  updateLED(lightAmountValue(amountValue));
+  delay(intervalValue);
 }
 
 void updateLED(int amount){
@@ -46,4 +41,11 @@ void updateLED(int amount){
       digitalWrite(i + 2, LOW);
      }
    }
+}
+
+int lightAmountValue(int amount){
+  if(amount < 64) return 1;
+  if(amount >= 64 && amount < 128) return 2;
+  if(amount >= 128 && amount < 192) return 3;
+  if(amount > 192) return 4;
 }
