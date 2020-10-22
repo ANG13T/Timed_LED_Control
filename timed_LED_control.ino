@@ -8,6 +8,7 @@ const int amountPot = A1;
 //variables
 int intervalValue; //interval of time when lights shine
 int amountValue; //amount of lights shining at each interval
+int value = 0; //num of light groups shining
 
 void setup() {
   // put your setup code here, to run once:
@@ -25,4 +26,15 @@ void loop() {
   amountValue = analogRead(amountPot);
   intervalValue = map(intervalValue, 0, 1023, 0, 255); //Map value 0-1023 to 0-255 (PWM)
   amountValue = map(amountValue, 0, 1023, 0, 255); 
+
+}
+
+void updateLED(int amount){
+  for(int i = 0; i < amount; i++){
+    digitalWrite(i, HIGH);
+  }
+
+  for(int i = 3; i >= amount; i--){
+     digitalWrite(i, LOW);
+  } 
 }
